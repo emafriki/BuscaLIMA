@@ -1,0 +1,7 @@
+setup.py
+buscaminas/__init__.py
+buscaminas.egg-info/PKG-INFO
+buscaminas.egg-info/SOURCES.txt
+buscaminas.egg-info/dependency_links.txt
+buscaminas.egg-info/not-zip-safe
+buscaminas.egg-info/top_level.txt
