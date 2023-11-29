@@ -1,2 +1,2 @@
-# BuscaLIMA
-Create a creating a graphical minesweeper using python
+# BuscaLIMA (minesweeper game)
+Recreation of the minesweeper game using the Python programming language, using prior knowledge about the language as well as the use of two libraries that will help us make the game, which are pygame and tkinter
