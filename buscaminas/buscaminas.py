@@ -3,7 +3,6 @@ from tkinter import messagebox
 import tkinter as tk
 import random
 import time
-from PIL import Image
 
 
 root=Tk()
