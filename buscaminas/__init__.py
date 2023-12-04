@@ -56,6 +56,7 @@ def generarBotones():
     for x in range(81):
         for y in range(81):
             listaBotones.append(Button(frame, width=6, height=3, text=" ", font=("Arial 12 bold"), command=lambda c=c:slotPulsado(c), bg="grey"))
+	    c = Cell(x, y)
             c.create_btn_object(center_frame)
             c.cell_btn_object.grid(
             column=x, row=y 
