@@ -1,3 +1,5 @@
+"""Setup file for a buscaminas game package"""
+
 from setuptools import setup
 
 setup(name='buscaminas',
