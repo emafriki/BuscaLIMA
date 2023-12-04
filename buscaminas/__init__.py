@@ -49,8 +49,9 @@ def tiempo(tiempo1=""):
 #-------Generacion del tablero-------
 
 def generarBotones():
-	global listaBotones
-    
+            for c in range(81): 
+		    
+                 listaBotones.append(Button(frame, width=6, height=3, text=" ", font=("Arial 12 bold"), command=lambda c=c:slotPulsado(c), bg="grey"))
     
 
 
