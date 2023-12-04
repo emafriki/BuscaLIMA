@@ -33,8 +33,6 @@ contadorTiempo.grid(column=1, row=0, columnspan=4)
 
 #------------Contador del tiempo-------------------
 def tiempo(tiempo1=""):
-	global tiempoInicio, tiempoActual, inicio, tomarTiempoFin, tiempoHabilitado, y, tiempo2
-	tiempo2=time.time()
 	if tiempo1!=tiempo2 and tiempoHabilitado==True:
 		tiempo1=tiempo2
 		tiempoActual=int(tiempo2-tiempoInicio)
@@ -53,14 +51,6 @@ def tiempo(tiempo1=""):
 def generarBotones():
 	global listaBotones
     
-    for x in range(81):
-        for y in range(81):
-            listaBotones.append(Button(frame, width=6, height=3, text=" ", font=("Arial 12 bold"), command=lambda c=c:slotPulsado(c), bg="grey"))
-	    c = Cell(x, y)
-            c.create_btn_object(center_frame)
-            c.cell_btn_object.grid(
-            column=x, row=y 
-            )
-generarBotones()
+    
 
 
