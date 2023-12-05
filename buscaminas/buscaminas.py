@@ -47,8 +47,6 @@ def tiempo(tiempo1=""):
             print("Terminó en: ", tomarTiempoFin)
         contadorTiempo.config(text="Tiempo transcurrido: " + str(tomarTiempoFin), font=("Arial 15"))
     contadorTiempo.after(200, tiempo)
-
-tiempo()
   
 #-------Generacion del tablero-------
 
