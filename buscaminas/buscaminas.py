@@ -66,6 +66,16 @@ def bombasRandom():
             bombas.append(posicion)
 
 bombasRandom()
+
+numeroPulsaciones=0
+imagenBomba = root.iconbitmap("img/bomba.ico")
+
+def mostrarBombas():
+    global imagenBomba
+    for bomba in bombas:
+        if bomba != -1:
+            listaBotones[bomba].config(image=imagenBomba, width=64, height=65)
+		
     
 
 
