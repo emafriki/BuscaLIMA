@@ -54,6 +54,7 @@ def generarBotones():
             for c in range(81): 
 		    
                  listaBotones.append(Button(frame, width=6, height=3, text=" ", font=("Arial 12 bold"), command=lambda c=c:slotPulsado(c), bg="grey"))
+#
     
 
 
