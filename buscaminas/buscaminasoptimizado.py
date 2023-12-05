@@ -149,4 +149,22 @@ def game_reset():
     global reset, bombas_cercanas, win, lista_botones, tiempo_actual, tiempo_inicio, tiempo1, tiempo2, tiempo_actual, banderas_disponibles, bandera, y, tomar_tiempo_fin, tiempo_habilitado
     if reset:
         comienzo = False
-        bombas
+        bombas_cercanas = 0
+        win = False
+        lista_botones = []
+        bombas = [random.randrange(81) for _ in range(10)]
+        print("Las ubicaciones de las bombas son:", bombas)
+        numero_pulsaciones = 0
+        bombas_cercanas = 0
+        generar_botones()
+        tiempo_inicio = time.time()
+        tiempo()
+        banderas_disponibles = 10
+        contador_banderas.config(text="Banderas disponibles: " + str(banderas_disponibles))
+        bandera = False
+        reset = False
+    else:
+        root.destroy()
+
+# loop
+root.mainloop()
