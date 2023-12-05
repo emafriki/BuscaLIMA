@@ -54,7 +54,18 @@ def generarBotones():
             for c in range(81): 
 		    
                  listaBotones.append(Button(frame, width=6, height=3, text=" ", font=("Arial 12 bold"), command=lambda c=c:slotPulsado(c), bg="grey"))
-#
+#---------------Bombas---------------
+bombas = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+def bombasRandom():
+    global bombas
+    bombas = []
+    while len(bombas) < 10:  
+        posicion = random.randrange(81)
+        if posicion not in bombas:  
+            bombas.append(posicion)
+
+bombasRandom()
     
 
 
