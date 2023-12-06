@@ -12,7 +12,8 @@ setup(name='buscaminas',
       packages=['buscaminas'],
       include_package_data = True,
       package_data = {
-          '' : ['*.jpg'],
+          '' : ['*.png'],
           '' : ['*.yml'],
+          '' : ['*.ico'],
       },
       zip_safe=False)
