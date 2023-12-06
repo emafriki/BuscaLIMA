@@ -4,7 +4,7 @@ Here are the most important ones:
 |Paquete |Drescripcion          | Uso                |
 |--------|----------------------|--------------------|
 |tkinter |It is the default Py- |In this project,    |
-|        |thon interface for    |Tkinter fulfills the|
-|        |managing the user     |task of creating and|
-|        |the Tk GUI toolkit.   |interface           |
+          thon interface for     Tkinter fulfills the 
+          managing the user      task of creating and 
+          the Tk GUI toolkit.    interface            
 |--------|----------------------|--------------------|
