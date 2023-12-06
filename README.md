@@ -3,5 +3,5 @@ In this repository we will recreate the minesweeper game using the Python progra
 Here are the most important ones: 
 |Paquete |Drescripcion                                                                                      | Uso                                               |
 |--------|--------------------------------------------------------------------------------------------------|---------------------------------------------------|
-|tkinter |It is the default Python  interface for In this project, managing the user the Tk GUI toolkit.     |Tkinter fulfills the task of creating and interface|           
+|tkinter |Tkinter is the package that is considered a standard for the graphical user interface for Python     |In this project, Tkinter fulfills the task of creating and managing the user interface|           
 
