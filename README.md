@@ -10,6 +10,10 @@ To develop this game, we have used different Python packages.Here are the most i
 # Game Example
 The player will have three options for the level they choose( easy, intermediate and difficult). Once the difficulty has been chosen, the interface will generate a grid where they can play.
 
+# Uso 
+<!-- Vamos a instalar Pygame. -->
+<!-- Si utilizamos Linux, basta con ejecutar el siguiente código: sudo apt-get install python3-pygame  -->
+
 
 # In case of receiving any type of error:
 * Check that you've typed the commands correctly. 
