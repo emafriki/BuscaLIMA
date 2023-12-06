@@ -14,5 +14,5 @@ To develop this game, we have used different Python packages.Here are the most i
 * Check that you've typed the commands correctly. 
 
 
-* Check that you have the Tkinter packages in your Python installation
+* Check that you have the Tkinter packages in your Python installation.
 
