@@ -10,4 +10,9 @@ setup(name='buscaminas',
       author_email='pa401981@uaeh.edu.mx, cr441643@uaeh.edu.mx,me340563@uaeh.edu.mx,ch400795@uaeh.edu.mx',
       license='MIT',
       packages=['buscaminas'],
+      include_package_data = True,
+      package_data = {
+          '' : ['*.jpg'],
+          '' : ['*.yml'],
+      },
       zip_safe=False)
