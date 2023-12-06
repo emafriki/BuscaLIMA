@@ -1,0 +1,4 @@
+global-include *.jpg
+global-include *.txt
+global-include *.png
+global-include *.ico
