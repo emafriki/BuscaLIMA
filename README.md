@@ -10,7 +10,7 @@ To develop this game, we have used different Python packages.Here are the most i
 # Game Example
 
 
-#In case of receiving any type of error:
+# In case of receiving any type of error:
 ° Check that you've typed the commands correctly. 
 ° Check that you have the Tkinter packages in your Python installation
 
