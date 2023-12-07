@@ -3,8 +3,6 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
 
-
-
 class BuscaminasGUI:
     def __init__(self, master):
         self.master = master
@@ -14,8 +12,8 @@ class BuscaminasGUI:
         self.columnas = 0
         self.bombas = {}
         self.tablero = []
-        self.imagen_bomba = Image.open("data/bomba3.png")  
-        self.imagen_bandera = Image.open("data/bandera.png")  
+        self.imagen_bomba = Image.open("../img/bomba3.png")  
+        self.imagen_bandera = Image.open("../img/bandera.png")  
 
         self.menu_nivel()
         self.frame_tablero = tk.Frame(self.master)  
