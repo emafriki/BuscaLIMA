@@ -34,7 +34,7 @@ contadorTiempo.grid(column = 1, row = 0, columnspan = 4)
 #------------Contador del tiempo-------------------
 def tiempo(tiempo1=""):
 	""" Funcion para el contador de tiempo """
-    global tiempoInicio, tiempoActual, inicio, tomarTiempoFin, tiempoHabilitado, y
+	global tiempoInicio, tiempoActual, inicio, tomarTiempoFin, tiempoHabilitado, y
     tiempo2 = time.time()
     if tiempo1 != tiempo2 and tiempoHabilitado:
         tiempo1 = tiempo2
