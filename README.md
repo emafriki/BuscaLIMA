@@ -21,3 +21,9 @@ The player will have three options for the level they choose( easy, intermediate
 
 * Check that you have the Tkinter packages in your Python installation.
 
+
+# Collaborators
+*Cruz Aviles Maritza Nazareth
+*Chavez Perales Mariana 
+*Meneses Bote Mauritania
+*Patiño Chavez Alma Rocio 
