@@ -12,6 +12,7 @@ class BuscaminasGUI:
         self.columnas = 0
         self.bombas = {}
         self.tablero = []
+        self.botones = []
         self.imagen_bomba = Image.open("../img/bomba3.png")  
         self.imagen_bandera = Image.open("../img/bandera.png")  
 
