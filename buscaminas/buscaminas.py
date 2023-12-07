@@ -79,7 +79,7 @@ def bombasRandom():
 bombasRandom()
 
 numeroPulsaciones=0
-imagenBomba = root.iconbitmap("img/bomba.ico")
+imagenBomba = root.iconbitmap("../img/bomba.ico")
 
 def mostrarBombas():
     global imagenBomba
