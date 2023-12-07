@@ -68,11 +68,11 @@ class BuscaminasGUI:
 
     def mostrar_bombas(self):
         for (fila, columna) in self.bombas:
-            label = tk.Label(self.master)
+            label = tk.Label(self.frame_tablero)
             imagen = ImageTk.PhotoImage(self.imagen_bomba)
             label.image = imagen
             label.configure(image=imagen)
-            label.grid(row=fila, column=columna)
+            label.pack()
 
     def revelar_casilla(self, fila, columna):
         if (fila, columna) in self.bombas:
