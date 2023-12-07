@@ -9,7 +9,7 @@ root = Tk()
 frame = Frame(root)
 frame.pack()
 root.title("Buscaminas")
-root.iconbitmap("img/bomba.ico")
+root.iconbitmap("../img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
 #--------------Variables--------------
