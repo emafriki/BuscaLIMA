@@ -69,6 +69,7 @@ class BuscaminasGUI:
             for columna in range(self.columnas):
                 boton = tk.Button(self.frame_tablero, width=3, height=1, command=lambda f=fila, c=columna: self.revelar_casilla(f, c))
                 boton.grid(row=fila, column=columna)
+                self.botones.append(boton)
            
 
     def mostrar_bombas(self):
