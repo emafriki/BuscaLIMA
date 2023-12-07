@@ -63,8 +63,8 @@ class BuscaminasGUI:
 
     def mostrar_tablero(self):
         for boton in self.botones:
-                boton.destroy()
-            self.botones.clear
+            boton.destroy()
+        self.botones.clear
         for fila in range(self.filas):
             for columna in range(self.columnas):
                 boton = tk.Button(self.frame_tablero, width=3, height=1, command=lambda f=fila, c=columna: self.revelar_casilla(f, c))
