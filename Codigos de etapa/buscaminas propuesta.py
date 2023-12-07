@@ -94,17 +94,15 @@ class BuscaminasGUI:
                 self.revelar_casillas_adyacentes_vacias(fila, columna)
 
     def contar_bombas_adyacentes(self, fila, columna):
+        bombas_adyacentes = 0
         for i in range(-1, 2):
             for j in range(-1, 2):
                 nueva_fila = fila + i
                 nueva_columna = columna + j
                 if 0 <= nueva_fila < self.filas and 0 <= nueva_columna < self.columnas:
-                    if (nueva_fila, nueva_columna) not in self.bombas:
-                        boton = self.encontrar_boton(nueva_fila, nueva_columna)
-                        if not self.contar_bombas_adyacentes(nueva_fila, nueva_columna):
-                            boton.invoke()  # Simular clic para revelar la casilla
-                            self.revelar_casillas_adyacentes_vacias(nueva_fila, nueva_columna)
-                        boton.config(state='disabled')
+                    if (nueva_fila, nueva_columna)  in self.bombas:
+                        bombas_adyacentes +=1
+        return bombas_adyacentes
 
     def reiniciar_juego(self):
         for widget in self.master.winfo_children():
