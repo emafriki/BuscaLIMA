@@ -7,7 +7,7 @@ To develop this game, we have used different Python packages.Here are the most i
 |--------|--------------------------------------------------------------------------------------------------|---------------------------------------------------|
 |tkinter |Tkinter is the package that is considered a standard for the graphical user interface for Python     |In this project, Tkinter fulfills the task of creating and managing the user interface|      
 
-# Game Example
+# Functioning
 The player will have three options for the level they choose( easy, intermediate and difficult). Once the difficulty has been chosen, the interface will generate a grid where they can play.
 
 # Use 
