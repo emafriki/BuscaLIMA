@@ -23,7 +23,11 @@ The player will have three options for the level they choose( easy, intermediate
 
 
 # Collaborators
+
 *Cruz Aviles Maritza Nazareth
+
 *Chavez Perales Mariana 
+
 *Meneses Bote Mauritania
+
 *Patiño Chavez Alma Rocio 
