@@ -52,7 +52,7 @@ def tiempo(tiempo1=""):
 #-------Generacion del tablero-------
 
 def generarBotones():
-	""" Funcion para el generar el tablero"""
+    """ Funcion para el generar el tablero"""
     global listaBotones
     rows, columns = 9, 9
     button_width, button_height = 6, 3 	
