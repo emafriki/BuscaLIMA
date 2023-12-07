@@ -73,6 +73,12 @@ class BuscaminasGUI:
             label.image = imagen
             label.configure(image=imagen)
             label.pack()
+    def encontrar_boton(self, fila, columna):
+        for widget in self.frame_tablero.winfo_children():
+            info=widget.grid_info()
+            if info['row'] == fila and info['column']== columna:
+                return widget
+        return None
 
     def revelar_casilla(self, fila, columna):
         if (fila, columna) in self.bombas:
