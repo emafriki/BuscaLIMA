@@ -79,12 +79,9 @@ class BuscaminasGUI:
             label.image = imagen
             label.configure(image=imagen)
             label.grid(row=fila, column=columna)
+            
     def encontrar_boton(self, fila, columna):
-        for widget in self.frame_tablero.winfo_children():
-            info=widget.grid_info()
-            if info['row'] == fila and info['column']== columna:
-                return widget
-        return None
+        return self.botones[fila*sel.columnas + columna]
 
     def revelar_casilla(self, fila, columna):
         if (fila, columna) in self.bombas:
@@ -93,8 +90,8 @@ class BuscaminasGUI:
             self.reiniciar_juego()
         else:
             bombas_adyacentes = self.contar_bombas_adyacentes(fila, columna)
+            boton = self.encontrar_boton(fila, columna)
             if bombas_adyacentes > 0:
-                boton = self.encontrar_boton(fila, columna)
                 boton.config(text=str(bombas_adyacentes))
             else:
                 self.revelar_casillas_adyacentes_vacias(fila, columna)
@@ -109,6 +106,7 @@ class BuscaminasGUI:
                     if (nueva_fila, nueva_columna)  in self.bombas:
                         bombas_adyacentes +=1
         return bombas_adyacentes
+        
     def revelar_casillas_adyacentes_vacias(self, fila, columna):
         for i in range(-1, 2):
             for j in range(-1, 2):
@@ -120,8 +118,9 @@ class BuscaminasGUI:
                         self.revelar_casilla(nueva_fila, nueva_columna)
              
     def reiniciar_juego(self):
-        for widget in self.master.winfo_children():
-            widget.destroy()
+        for boton in self.botones:
+            boton.destroy()
+        self.botones.clear()
         self.menu_nivel()
 
 def main():
