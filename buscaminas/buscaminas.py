@@ -87,7 +87,7 @@ def mostrarBombas():
         if bomba != -1:
             listaBotones[bomba].config(image=imagenBomba, width=64, height=65)
             	
-    slot_pulsado(slot):
+   def slot_pulsado(slot):
         global bombas, listaBotones, bombasCerca, numeroPulsaciones, imagenbomba, win, reset, 
             varSlotPulsado, inicio, bandera, tiempoHabilitado, tomarTiempoFin, contadorTiempo, tiempoFin, tiempo2, 
             tiempoInicio, banderasDisponibles, bandera_img_slot, bandera_img, tiempoActual
