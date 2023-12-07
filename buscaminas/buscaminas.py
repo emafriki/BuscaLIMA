@@ -88,14 +88,16 @@ def mostrarBombas():
             listaBotones[bomba].config(image=imagenBomba, width=64, height=65)
             	
 def slot_pulsado(slot):
-    global bombas, listabotones, bombas_cercanas, numero_pulsaciones, imagen_bomba, win, reset, var_slot_pulsado, inicio, bandera, tiempo_habilitado, tomar_tiempo_fin, contador_tiempo, tiempo_fin, tiempo2, tiempo_inicio, banderas_disponibles, bandera_img_slot, bandera_img, tiempoActual
+    global bombas, listaBotones, bombasCerca, numeroPulsaciones, imagenbomba, win, reset, 
+	varSlotPulsado, inicio, bandera, tiempoHabilitado, tomarTiempoFin, contadorTiempo, tiempoFin, tiempo2, 
+	tiempoInicio, banderasDisponibles, bandera_img_slot, bandera_img, tiempoActual
 
-    numero_pulsaciones += 1
-    bombas_cercanas = 0
-    var_slot_pulsado = slot
-    tiempo_habilitado = True
+    numeroPulsaciones += 1
+    bombasCerca = 0
+    varSlotPulsado = slot
+    tiempoHabilitado = True
 
-    if var_slot_pulsado == -1:
+    if varSlotPulsado == -1:
         pass
     else:
         inicio = True
@@ -108,14 +110,14 @@ def slot_pulsado(slot):
             else:
                 mostrar_bombas()
                 lista_botones[slot].config(image=imagen_bomba, width=64, height=65, bg="#f17070")
-                tiempo_habilitado = False
+                tiempoHabilitado = False
                 reset = messagebox.askyesno("Game Over", "¿Desea volver a jugar?")
                 game_reset()
         else:
             def check():
-                nonlocal bombas_cercanas
+                nonlocal bombasCerca
                 neighbors = [slot + 1, slot - 1, slot + 9, slot - 9, slot - 8, slot + 8, slot + 10, slot - 10]
-                bombas_cercanas += sum(1 for neighbor in neighbors if neighbor in bombas)
+                bombasCerca += sum(1 for neighbor in neighbors if neighbor in bombas)
                 print("abajo" if slot + 1 in bombas else "",
                       "arriba" if slot - 1 in bombas else "",
                       "derecha" if slot + 9 in bombas else "",
