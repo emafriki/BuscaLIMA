@@ -87,10 +87,10 @@ def mostrarBombas():
         if bomba != -1:
             listaBotones[bomba].config(image=imagenBomba, width=64, height=65)
             	
-def slot_pulsado(slot):
+slot_pulsado(slot):
     global bombas, listaBotones, bombasCerca, numeroPulsaciones, imagenbomba, win, reset, 
-	varSlotPulsado, inicio, bandera, tiempoHabilitado, tomarTiempoFin, contadorTiempo, tiempoFin, tiempo2, 
-	tiempoInicio, banderasDisponibles, bandera_img_slot, bandera_img, tiempoActual
+	    varSlotPulsado, inicio, bandera, tiempoHabilitado, tomarTiempoFin, contadorTiempo, tiempoFin, tiempo2, 
+	    tiempoInicio, banderasDisponibles, bandera_img_slot, bandera_img, tiempoActual
 
     numeroPulsaciones += 1
     bombasCerca = 0
@@ -137,12 +137,12 @@ def slot_pulsado(slot):
 
             def check_win():
                 nonlocal win
-                if slot not in bombas and numero_pulsaciones == 71:
+                if slot not in bombas and numeroPulsaciones == 71:
                     win = True
                     txt_win = Label(frame, width=25, height=2, text="¡ G A N A S T E !", font=("helvetica 27 bold"), bg="#fe4a4a")
                     txt_win.grid(row=10, column=1, columnspan=9)
                     frame.config(bg="#fe4a4a")
-                    contador_tiempo.config(bg="#fe4a4a")
+                    contadorTiempo.config(bg="#fe4a4a")
                 mostrar_bombas()
 
             check_win()
