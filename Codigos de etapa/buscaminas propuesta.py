@@ -72,7 +72,7 @@ class BuscaminasGUI:
             imagen = ImageTk.PhotoImage(self.imagen_bomba)
             label.image = imagen
             label.configure(image=imagen)
-            label.pack()
+            label.grid(row=fila, column=columna)
     def encontrar_boton(self, fila, columna):
         for widget in self.frame_tablero.winfo_children():
             info=widget.grid_info()
