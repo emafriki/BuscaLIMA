@@ -62,10 +62,14 @@ class BuscaminasGUI:
             self.bombas[(fila, columna)] = True
 
     def mostrar_tablero(self):
+        for boton in self.botones:
+                boton.destroy()
+            self.botones.clear
         for fila in range(self.filas):
             for columna in range(self.columnas):
                 boton = tk.Button(self.frame_tablero, width=3, height=1, command=lambda f=fila, c=columna: self.revelar_casilla(f, c))
                 boton.grid(row=fila, column=columna)
+           
 
     def mostrar_bombas(self):
         for (fila, columna) in self.bombas:
