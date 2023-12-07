@@ -111,7 +111,7 @@ class BuscaminasGUI:
                 if 0 <= nueva_fila < self.filas and 0 <= nueva_columna < self.columnas:
                     if (nueva_fila, nueva_columna) not in self.bombas:
                         boton = self.encontrar_boton(nueva_fila, nueva_columna)
-                        if boton:
+                        if boton and boton.cget('text')==' ':
                             boton.invoke()
              
     def reiniciar_juego(self):
