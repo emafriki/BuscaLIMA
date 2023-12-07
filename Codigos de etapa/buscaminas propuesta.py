@@ -101,7 +101,7 @@ class BuscaminasGUI:
                 if 0 <= nueva_fila < self.filas and 0 <= nueva_columna < self.columnas:
                     if (nueva_fila, nueva_columna) not in self.bombas:
                         boton = self.encontrar_boton(nueva_fila, nueva_columna)
-                        if not self.bombas_adyacentes(nueva_fila, nueva_columna):
+                        if not self.contar_bombas_adyacentes(nueva_fila, nueva_columna):
                             boton.invoke()  # Simular clic para revelar la casilla
                             self.revelar_casillas_adyacentes_vacias(nueva_fila, nueva_columna)
                         boton.config(state='disabled')
