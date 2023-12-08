@@ -1,6 +1,9 @@
 import tkinter as tk
 import random
 
+#anadir boton para preguntar que nivel desea jugar
+
+
 # Configuración del juego
 NUM_FILAS = 5
 NUM_COLUMNAS = 5
