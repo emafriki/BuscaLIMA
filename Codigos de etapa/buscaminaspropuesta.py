@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 import random
-import time
 
 ANCHO, ALTO, CANTIDAD_BOMBAS = 6, 6, 6
 
@@ -35,6 +34,7 @@ def limpiar_tablero():
     for i in range(len(botones)):
         for j in range(len(botones[i])):
             if botones[i][j] is not None:
+                botones[i][j].unbind("<Button-1>")
                 botones[i][j].unbind("<Button-3>")
                 botones[i][j].destroy()
                 botones[i][j] = None
@@ -50,8 +50,8 @@ def crear_tablero():
 
     for i in range(ALTO):
         for j in range(ANCHO):
-            botones[i][j] = Button(frame, text="", width=6, height=3, font=("Arial 12 bold"),
-                                      command=lambda i=i, j=j: on_left_click(i, j))
+            botones[i][j] = Button(frame, text="", width=6, height=3, font=("Arial 12 bold"))
+            botones[i][j].bind("<Button-1>", lambda event, i=i, j=j: on_left_click(i, j))
             botones[i][j].bind("<Button-3>", lambda event, i=i, j=j: on_right_click(i, j))
             botones[i][j].grid(row=i, column=j)
 
@@ -73,7 +73,6 @@ def calculate_numbers():
                     if 0 <= i + y < ALTO and 0 <= j + x < ANCHO and tablero[i + y][j + x] == -1:
                         tablero[i][j] += 1
 
-
 def on_left_click(i, j):
     if tablero[i][j] == -1:
         game_over()
@@ -82,13 +81,16 @@ def on_left_click(i, j):
     else:
         botones[i][j].config(text=str(tablero[i][j]))
 
+banderaImgSlot=PhotoImage(file="img/banderaSlot.png")
+imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
+
 def on_right_click(i, j):
     if botones[i][j]["state"] == tk.NORMAL:
         if not banderas[i][j]:
-            botones[i][j].config(text="🚩", fg="red")
+            botones[i][j].config(image=banderaImgSlot, width=64, height=65)
             banderas[i][j] = True
         else:
-            botones[i][j].config(text="")
+            botones[i][j].config(image=imagenTransparente, text="")
             banderas[i][j] = False
 
 def reveal_empty_cells(i, j):
@@ -98,9 +100,14 @@ def reveal_empty_cells(i, j):
             for x in range(-1, 2):
                 for y in range(-1, 2):
                     reveal_empty_cells(i + y, j + x)
-
         elif 0 < tablero[i][j] < 9:
             botones[i][j].config(state=tk.DISABLED, text=str(tablero[i][j]))
+
+def verificar_victoria():
+    celdas_sin_bomba = [botones[i][j]["state"] == tk.DISABLED for i in range(ALTO) for j in range(ANCHO)]
+    if all(celdas_sin_bomba):
+        messagebox.showinfo("¡Felicidades!", "¡Has ganado!")
+        root.destroy()
 
 imagenBomba=PhotoImage(file="img/bomba3.png")
 
@@ -123,7 +130,7 @@ def reiniciar_juego():
             botones[i][j].config(state=tk.NORMAL, text="")
             banderas[i][j] = False
     crear_tablero()
-    
+
 if __name__ == "__main__":
     crear_menu()
     crear_tablero()
