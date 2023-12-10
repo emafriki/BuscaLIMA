@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 import random
+import time
 
 ANCHO, ALTO, CANTIDAD_BOMBAS = 6, 6, 6
 
@@ -12,6 +13,20 @@ root.title("Buscaminas")
 root.iconbitmap("img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
+
+# Contador de tiempo
+tiempo_inicio = 0
+tiempo_label = None
+
+def iniciar_tiempo():
+    global tiempo_inicio
+    tiempo_inicio = time.time()
+    actualizar_tiempo()
+
+def actualizar_tiempo():
+    tiempo_transcurrido = round(time.time() - tiempo_inicio)
+    tiempo_label.config(text=f"Tiempo: {tiempo_transcurrido}s")
+    root.after(1000, actualizar_tiempo)
 
 def crear_menu():
     menu_bar = Menu(frame)
@@ -30,7 +45,7 @@ def establecer_dificultad(ancho, alto, cantidad_bombas):
     crear_tablero()
 
 def limpiar_tablero():
-    global botones
+    global botones, tiempo_label
     for i in range(len(botones)):
         for j in range(len(botones[i])):
             if botones[i][j] is not None:
@@ -38,9 +53,11 @@ def limpiar_tablero():
                 botones[i][j].unbind("<Button-3>")
                 botones[i][j].destroy()
                 botones[i][j] = None
+    if tiempo_label is not None:
+        tiempo_label.destroy()
 
 def crear_tablero():
-    global tablero, botones, banderas
+    global tablero, botones, banderas, tiempo_label
     tablero = [[0] * ANCHO for _ in range(ALTO)]
     banderas = [[False] * ANCHO for _ in range(ALTO)]
     place_bombs()
@@ -54,6 +71,10 @@ def crear_tablero():
             botones[i][j].bind("<Button-1>", lambda event, i=i, j=j: on_left_click(i, j))
             botones[i][j].bind("<Button-3>", lambda event, i=i, j=j: on_right_click(i, j))
             botones[i][j].grid(row=i, column=j)
+
+    tiempo_label = Label(frame, text="Tiempo: 0s", font=("Arial 12 bold"))
+    tiempo_label.grid(row=ALTO, columnspan=ANCHO)
+    iniciar_tiempo()
 
 def place_bombs():
     bombs_placed = 0
@@ -81,7 +102,7 @@ def on_left_click(i, j):
     else:
         botones[i][j].config(text=str(tablero[i][j]))
 
-banderaImgSlot=PhotoImage(file="img/banderaSlot.png")
+banderaImgSlot = PhotoImage(file="img/banderaSlot.png")
 imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
 
 def on_right_click(i, j):
@@ -106,10 +127,10 @@ def reveal_empty_cells(i, j):
 def verificar_victoria():
     celdas_sin_bomba = [botones[i][j]["state"] == tk.DISABLED for i in range(ALTO) for j in range(ANCHO)]
     if all(celdas_sin_bomba):
-        messagebox.showinfo("¡Felicidades!", "¡Has ganado!")
+        messagebox.showinfo("¡Felicidades!", f"¡Has ganado en {tiempo_label.cget('text').split()[1]}!")
         root.destroy()
 
-imagenBomba=PhotoImage(file="img/bomba3.png")
+imagenBomba = PhotoImage(file="img/bomba3.png")
 
 def game_over():
     for i in range(ALTO):
@@ -118,17 +139,14 @@ def game_over():
                 botones[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070", state=tk.DISABLED)
             else:
                 botones[i][j].config(state=tk.DISABLED)
-    respuesta = messagebox.askyesno("Fin del Juego", "¡Has perdido!\n¿Quieres volver a jugar?")
-    if respuesta==True:
+    respuesta = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
+    if respuesta == True:
         reiniciar_juego()
     else:
         root.destroy()
 
 def reiniciar_juego():
-    for i in range(ALTO):
-        for j in range(ANCHO):
-            botones[i][j].config(state=tk.NORMAL, text="")
-            banderas[i][j] = False
+    limpiar_tablero()
     crear_tablero()
 
 if __name__ == "__main__":
