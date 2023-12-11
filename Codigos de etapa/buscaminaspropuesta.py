@@ -140,7 +140,7 @@ def game_over():
     for i in range(ALTO):
         for j in range(ANCHO):
             if tablero[i][j] == -1:
-                botones[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070", state=tk.DISABLED)
+                botones[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070")
             else:
                 botones[i][j].config(state=tk.DISABLED)
     respuesta = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
