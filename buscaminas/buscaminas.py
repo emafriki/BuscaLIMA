@@ -17,6 +17,7 @@ frame.config(width=400, height=400)
 # Contador de tiempo
 tiempo_inicio = 0
 tiempo_label = None
+juego_activo = True  # Variable para controlar si el juego está activo o no
 
 def iniciar_tiempo():
     global tiempo_inicio
@@ -24,9 +25,10 @@ def iniciar_tiempo():
     actualizar_tiempo()
 
 def actualizar_tiempo():
-    tiempo_transcurrido = round(time.time() - tiempo_inicio)
-    tiempo_label.config(text=f"Tiempo: {tiempo_transcurrido}s")
-    root.after(1000, actualizar_tiempo)
+    if juego_activo:
+        tiempo_transcurrido = round(time.time() - tiempo_inicio)
+        tiempo_label.config(text=f"Tiempo: {tiempo_transcurrido}s")
+        root.after(1000, actualizar_tiempo)
 
 def crear_menu():
     menu_bar = Menu(frame)
@@ -45,7 +47,7 @@ def establecer_dificultad(ancho, alto, cantidad_bombas):
     crear_tablero()
 
 def limpiar_tablero():
-    global botones, tiempo_label
+    global botones, tiempo_label, juego_activo
     for i in range(len(botones)):
         for j in range(len(botones[i])):
             if botones[i][j] is not None:
@@ -55,6 +57,7 @@ def limpiar_tablero():
                 botones[i][j] = None
     if tiempo_label is not None:
         tiempo_label.destroy()
+    juego_activo = True
 
 def crear_tablero():
     global tablero, botones, banderas, tiempo_label
@@ -133,6 +136,8 @@ def verificar_victoria():
 imagenBomba = PhotoImage(file="img/bomba3.png")
 
 def game_over():
+    global juego_activo
+    juego_activo = False  # Detener el tiempo al perder
     for i in range(ALTO):
         for j in range(ANCHO):
             if tablero[i][j] == -1:
@@ -140,7 +145,7 @@ def game_over():
             else:
                 botones[i][j].config(state=tk.DISABLED)
     respuesta = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
-    if respuesta == True:
+    if respuesta:
         reiniciar_juego()
     else:
         root.destroy()
