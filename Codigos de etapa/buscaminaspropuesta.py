@@ -133,7 +133,8 @@ def verificar_victoria():
         messagebox.showinfo("¡Felicidades!", f"¡Has ganado en {tiempo_label.cget('text').split()[1]}!")
         root.destroy()
 
-imagenBomba = PhotoImage(file="img/bomba3.png")
+#imagenBomba = PhotoImage(file="img/bomba3.png")
+imagenBomba = PhotoImage(file="../img/bomba3.png")
 
 def game_over():
     for i in range(ALTO):
