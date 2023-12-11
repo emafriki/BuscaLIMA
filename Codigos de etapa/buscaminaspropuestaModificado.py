@@ -5,18 +5,12 @@ import random
 import time
 
 ANCHO, ALTO, CANTIDAD_BOMBAS = 6, 6, 6
-COLORES = {
-    0: "light green", 
-    1: "light green",        
-    2: "light green",
-    3: "light green",
-    4: "light green"}
 
 root = Tk()
 frame = Frame(root)
 frame.pack()
 root.title("Buscaminas")
-root.iconbitmap("../img/bomba.ico")
+root.iconbitmap("/img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
 
@@ -110,11 +104,11 @@ def on_left_click(i, j):
         visited = set()
         reveal_empty_cells(i, j, visited)
     else:
-        botones[i][j].config(text=str(tablero[i][j]), bg=COLORES.get(tablero[i][j], "light green"))
+        botones[i][j].config(text=str(tablero[i][j]))
         botones[i][j].config(state=tk.DISABLED)
 
-banderaImgSlot = PhotoImage(file="../img/banderaSlot.png")
-imagenTransparente = PhotoImage(file="../img/imagenTransparente.png")
+banderaImgSlot = PhotoImage(file="/img/banderaSlot.png")
+imagenTransparente = PhotoImage(file="/img/imagenTransparente.png")
 
 def on_right_click(i, j):
     if botones[i][j]["state"] == tk.NORMAL:
@@ -131,12 +125,12 @@ def reveal_empty_cells(i, j, visited):
             (i, j) not in visited):
         visited.add((i, j))
         if tablero[i][j] == 0:
-            botones[i][j].config(state=tk.DISABLED, text="", bg=COLORES[0])
+            botones[i][j].config(state=tk.DISABLED, text="")
             for x in range(-1, 2):
                 for y in range(-1, 2):
                     reveal_empty_cells(i + y, j + x, visited)
         elif 0 < tablero[i][j] < 9:
-            botones[i][j].config(state=tk.DISABLED, text=str(tablero[i][j]), bg=COLORES[tablero[i][j]])
+            botones[i][j].config(state=tk.DISABLED, text=str(tablero[i][j]))
 
 def verificar_victoria():
     celdas_sin_bomba = [botones[i][j]["state"] == tk.DISABLED for i in range(ALTO) for j in range(ANCHO)]
@@ -144,7 +138,7 @@ def verificar_victoria():
         messagebox.showinfo("¡Felicidades!", f"¡Has ganado en {tiempo_label.cget('text').split()[1]}!")
         root.destroy()
 
-imagenBomba = PhotoImage(file="../img/bomba3.png")
+imagenBomba = PhotoImage(file="/img/bomba3.png")
 
 def game_over():
     global tiempo_activo
