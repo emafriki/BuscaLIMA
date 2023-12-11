@@ -12,6 +12,8 @@ The player will have three options for the level they choose( easy, intermediate
 
 # Use 
 The following GIF shows an example of how the game works, you can also download the EXE for Windows (downloading the 'dist' folder)
+
+
 ![BuscaLIMA](./buscaminas_prueba.gif)
 
 
