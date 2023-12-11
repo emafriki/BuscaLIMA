@@ -13,6 +13,8 @@ The player will have three options for the level they choose( easy, intermediate
 # Use 
 The following GIF shows an example of how the game works
 
+![BuscaLIMA](./Buscaminas_prueba.gif)
+
 # In case of receiving any type of error:
 * Check that you've typed the commands correctly. 
 
