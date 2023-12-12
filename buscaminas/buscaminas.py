@@ -34,3 +34,15 @@ def update_time():
         time_elapsed = round(time.time() - time_start)
         time_label.config(text=f"Tiempo: {time_elapsed}s")
         root.after(1000, update_time)
+
+"""A function that creates the game levels"""
+
+def create_menu():
+    menu_bar = Menu(frame)
+    root.config(menu=menu_bar)
+
+    difficulty_menu = Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label="Dificultad", menu=difficulty_menu)
+    difficulty_menu.add_command(label="Facil", command=lambda: set_difficulty(6, 6, 6))
+    difficulty_menu.add_command(label="Intermedio", command=lambda: set_difficulty(7, 7, 8))
+    difficulty_menu.add_command(label="Dificil", command=lambda: set_difficulty(9, 9, 10))
