@@ -161,8 +161,11 @@ def game_over():
         root.destroy()
 
 def restart_game():
+    global time_active
+    time_active = True  # Reactiva el contador de tiempo
     clear_board()
     create_board()
+    start_time()  # Inicia el contador de tiempo nuevamente
 
 if __name__ == "__main__":
     create_menu()
