@@ -9,7 +9,7 @@ WIDTH, HEIGHT, BOMB_COUNT = 6, 6, 6
 root = Tk()
 frame = Frame(root)
 frame.pack()
-root.title("Minesweeper")
+root.title("Buscaminas")
 root.iconbitmap("/img/bomb.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
@@ -107,16 +107,16 @@ def on_left_click(i, j):
         buttons[i][j].config(text=str(board[i][j]))
         buttons[i][j].config(state=tk.DISABLED)
 
-flag_image_slot = PhotoImage(file="/img/flagSlot.png")
-transparent_image = PhotoImage(file="/img/transparentImage.png")
+banderaImgSlot = PhotoImage(file="img/banderaSlot.png") 
+imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
 
 def on_right_click(i, j):
     if buttons[i][j]["state"] == tk.NORMAL:
         if not flags[i][j]:
-            buttons[i][j].config(image=flag_image_slot, width=64, height=65)
+            buttons[i][j].config(image=banderaImgSlot, width=64, height=65)
             flags[i][j] = True
         else:
-            buttons[i][j].config(image=transparent_image, text="")
+            buttons[i][j].config(image=ImagenTransparente, text="")
             flags[i][j] = False
 
 def reveal_empty_cells(i, j, visited):
@@ -138,7 +138,7 @@ def check_victory():
         messagebox.showinfo("Congratulations!", f"You won in {time_label.cget('text').split()[1]}!")
         root.destroy()
 
-bomb_image = PhotoImage(file="/img/bombImage.png")
+imagenBomba= PhotoImage(file="/img/bombImage.png")
 
 def game_over():
     global time_active
@@ -147,7 +147,7 @@ def game_over():
     for i in range(HEIGHT):
         for j in range(WIDTH):
             if board[i][j] == -1:
-                buttons[i][j].config(image=bomb_image, width=64, height=65, bg="#f17070", state=tk.DISABLED)
+                buttons[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070", state=tk.DISABLED)
             else:
                 buttons[i][j].config(state=tk.DISABLED)
     response = messagebox.askyesno("Game Over", f"You lost!\nDo you want to play again?")
