@@ -22,7 +22,7 @@ To download the necessary files and be able to play it, you can run the followin
 The following GIF shows an example of how the game works, you can also download the EXE for Windows (downloading the 'dist' folder)
 
 
-![BuscaLIMA](./Buscaminas_muestra.gif)
+![BuscaLIMA](./buscaminas_Muestra.gif)
 
 
 # In case of receiving any type of error:
