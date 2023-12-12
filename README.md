@@ -16,7 +16,7 @@ This game is inspired by the Windows classic, with right click you uncover boxes
 
 To download the necessary files and be able to play it, you can run the following
 
-git clone code https://github.com/emafriki/BuscaLIMA
+>git clone code https://github.com/emafriki/BuscaLIMA
 
 # Use 
 The following GIF shows an example of how the game works, you can also download the EXE for Windows (downloading the 'dist' folder)
