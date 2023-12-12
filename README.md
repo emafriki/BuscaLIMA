@@ -3,7 +3,7 @@ In this repository we will recreate the minesweeper game using the Python progra
 
 Minesweeper is a game whose objective is to clear all the squares in a minefield without detonating any.
 
-To develop this game, we have used different Python packages.Here are the most important ones: 
+To develop this game, we will use a graphical interface, with the help of the library:
 
 |Package |Description            |Usage                  |
 |--------|--------------------------------------------------------------------------------------------------|---------------------------------------------------|
