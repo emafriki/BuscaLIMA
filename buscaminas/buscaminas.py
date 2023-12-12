@@ -4,6 +4,9 @@ from tkinter import messagebox
 import random
 import time
 
+#-----------------Dashboard Generator----------------
+
+#Default level (easy)
 WIDTH, HEIGHT, BOMB_COUNT = 6, 6, 6
 
 root = Tk()
@@ -14,30 +17,34 @@ root.iconbitmap("img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
 
-# Time counter
+
+#-----------------Time counter----------------
+
+
+#Variables
 time_start = 0
 time_label = None
 time_active = True
 
-"""A funcion that time starter"""
-
 def start_time():
+    """This function starts the time for the counter"""
     global time_start
     time_start = time.time()
     update_time()
 
-"""A funcion that updates the time"""
-
 def update_time():
+    """This function updates the time every time you restart or change levels"""
     global time_active
     if time_active:
         time_elapsed = round(time.time() - time_start)
         time_label.config(text=f"Tiempo: {time_elapsed}s")
         root.after(1000, update_time)
 
-"""A function that creates the game levels"""
+
+#-----------------Dropdown menu----------------
 
 def create_menu():
+    """This function creates the dropdown menu to choose between three levels"""
     menu_bar = Menu(frame)
     root.config(menu=menu_bar)
 
