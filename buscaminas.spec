@@ -34,4 +34,4 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           bootloader_blacklist_flags=[],
           runtime_tmpdir=None,
-          console=True )
+           console=False , icon='img//bomba.ico' )
