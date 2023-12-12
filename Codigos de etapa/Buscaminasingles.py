@@ -10,7 +10,7 @@ root = Tk()
 frame = Frame(root)
 frame.pack()
 root.title("Buscaminas")
-root.iconbitmap("/img/bomb.ico")
+root.iconbitmap("img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
 
@@ -36,10 +36,10 @@ def create_menu():
     root.config(menu=menu_bar)
 
     difficulty_menu = Menu(menu_bar, tearoff=0)
-    menu_bar.add_cascade(label="Difficulty", menu=difficulty_menu)
-    difficulty_menu.add_command(label="Easy", command=lambda: set_difficulty(6, 6, 6))
-    difficulty_menu.add_command(label="Intermediate", command=lambda: set_difficulty(8, 8, 8))
-    difficulty_menu.add_command(label="Hard", command=lambda: set_difficulty(10, 10, 10))
+    menu_bar.add_cascade(label="Dificultad", menu=difficulty_menu)
+    difficulty_menu.add_command(label="Facil", command=lambda: set_difficulty(6, 6, 6))
+    difficulty_menu.add_command(label="Intermedio", command=lambda: set_difficulty(7, 7, 8))
+    difficulty_menu.add_command(label="Dificil", command=lambda: set_difficulty(9, 9, 10))
 
 def set_difficulty(width, height, bomb_count):
     global WIDTH, HEIGHT, BOMB_COUNT
@@ -75,7 +75,7 @@ def create_board():
             buttons[i][j].bind("<Button-3>", lambda event, i=i, j=j: on_right_click(i, j))
             buttons[i][j].grid(row=i, column=j)
 
-    time_label = Label(frame, text="Time: 0s", font=("Arial 12 bold"))
+    time_label = Label(frame, text="Tiempo: 0s", font=("Arial 12 bold"))
     time_label.grid(row=HEIGHT, columnspan=WIDTH)
     start_time()
 
@@ -116,7 +116,7 @@ def on_right_click(i, j):
             buttons[i][j].config(image=banderaImgSlot, width=64, height=65)
             flags[i][j] = True
         else:
-            buttons[i][j].config(image=ImagenTransparente, text="")
+            buttons[i][j].config(image=imagenTransparente, text="")
             flags[i][j] = False
 
 def reveal_empty_cells(i, j, visited):
@@ -142,7 +142,7 @@ def check_victory():
     else:
         root.destroy()
 
-imagenBomba= PhotoImage(file="/img/bombImage.png")
+imagenBomba= PhotoImage(file="img/bomba3.png")
 
 def game_over():
     global time_active
@@ -151,7 +151,7 @@ def game_over():
     for i in range(HEIGHT):
         for j in range(WIDTH):
             if board[i][j] == -1:
-                buttons[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070", state=tk.DISABLED)
+                buttons[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070")
             else:
                 buttons[i][j].config(state=tk.DISABLED)
     response = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
