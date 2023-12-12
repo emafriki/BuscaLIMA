@@ -14,4 +14,9 @@ root.iconbitmap("img/bomba.ico")
 root.resizable(False, False)
 frame.config(width=400, height=400)
 
+# Time counter
+time_start = 0
+time_label = None
+time_active = True
+
 
