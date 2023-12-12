@@ -25,3 +25,12 @@ def start_time():
     global time_start
     time_start = time.time()
     update_time()
+
+"""A funcion that updates the time"""
+
+def update_time():
+    global time_active
+    if time_active:
+        time_elapsed = round(time.time() - time_start)
+        time_label.config(text=f"Tiempo: {time_elapsed}s")
+        root.after(1000, update_time)
