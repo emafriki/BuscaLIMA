@@ -28,7 +28,7 @@ def update_time():
     global time_active
     if time_active:
         time_elapsed = round(time.time() - time_start)
-        time_label.config(text=f"Time: {time_elapsed}s")
+        time_label.config(text=f"Tiempo: {time_elapsed}s")
         root.after(1000, update_time)
 
 def create_menu():
@@ -135,7 +135,11 @@ def reveal_empty_cells(i, j, visited):
 def check_victory():
     cells_without_bomb = [buttons[i][j]["state"] == tk.DISABLED for i in range(HEIGHT) for j in range(WIDTH)]
     if all(cells_without_bomb):
-        messagebox.showinfo("Congratulations!", f"You won in {time_label.cget('text').split()[1]}!")
+        messagebox.showinfo("¡Felicidades!", f"¡Has ganado!")
+    response = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
+    if response:
+        restart_game()
+    else:
         root.destroy()
 
 imagenBomba= PhotoImage(file="/img/bombImage.png")
@@ -150,7 +154,7 @@ def game_over():
                 buttons[i][j].config(image=imagenBomba, width=64, height=65, bg="#f17070", state=tk.DISABLED)
             else:
                 buttons[i][j].config(state=tk.DISABLED)
-    response = messagebox.askyesno("Game Over", f"You lost!\nDo you want to play again?")
+    response = messagebox.askyesno("Fin del Juego", f"¡Has perdido!\n¿Quieres volver a jugar?")
     if response:
         restart_game()
     else:
