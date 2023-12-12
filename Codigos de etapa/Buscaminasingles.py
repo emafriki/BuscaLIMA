@@ -105,7 +105,7 @@ def on_left_click(i, j):
         reveal_empty_cells(i, j, visited)
     else:
         buttons[i][j].config(text=str(board[i][j]))
-        buttons[i][j].config(state=tk.DISABLED)
+        buttons[i][j].config(state=tk.NORMAL)
 
 banderaImgSlot = PhotoImage(file="img/banderaSlot.png") 
 imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
