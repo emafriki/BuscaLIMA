@@ -11,6 +11,11 @@ To develop this game, we have used different Python packages.Here are the most i
 The player will have three options for the level they choose( easy, intermediate and difficult). Once the difficulty has been chosen, the interface will generate a grid where they can play.
  git clone https://github.com/emafriki/BuscaLIMA
 
+# Game tutorial
+This game is inspired by the Windows classic, with right click you uncover boxes and with left click you set the flags, it has a timer, as well as three levels of difficulty
+
+
+
 # Use 
 The following GIF shows an example of how the game works, you can also download the EXE for Windows (downloading the 'dist' folder)
 
