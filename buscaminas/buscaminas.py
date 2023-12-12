@@ -19,4 +19,9 @@ time_start = 0
 time_label = None
 time_active = True
 
+"""A funcion that time starter"""
 
+def start_time():
+    global time_start
+    time_start = time.time()
+    update_time()
