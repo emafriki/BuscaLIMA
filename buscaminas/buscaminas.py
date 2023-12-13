@@ -104,6 +104,7 @@ def place_bombs():
             bombs_placed += 1
 
 def calculate_numbers():
+	"""this function counts how many mines there are in adjacent cells."""
     for i in range(HEIGHT):
         for j in range(WIDTH):
             if board[i][j] == -1:
