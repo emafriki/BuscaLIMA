@@ -14,7 +14,9 @@ The player will have three options for the level they choose( easy, intermediate
  
 
 # Game tutorial
-This game is inspired by the Windows classic, with right click you uncover boxes and with left click you set the flags (flags are used to indicate where there is possibly a mine), it has a timer, as well as three levels of difficulty
+This game is inspired by the Windows classic, with right click you uncover boxes and with left click you set the flags (flags are used to indicate where there is possibly a mine), it has a timer, as well as three levels of difficulty. 
+
+You win if you clear all the squares in the minefield without detonating any. You can also use flags to rule out places where there may be mines. If you make a mistake and click on a space with a mine, you will have to start over or finish the game.
 
 To download the necessary files and be able to play it, you can run the following
 
