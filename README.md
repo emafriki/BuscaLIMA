@@ -12,6 +12,8 @@ To develop this game, we will take the help of the following libraries:
 
 # Functioning
 The player will have three options for the level they choose( easy, intermediate and difficult). Once the difficulty has been chosen, the interface will generate a grid where they can play.
+
+You win if you clear all the squares in the minefield without detonating any. You can also use flags to rule out places where there may be mines. If you make a mistake and click on a space with a mine, you will have to start over or finish the game.
  
 
 # Game tutorial
