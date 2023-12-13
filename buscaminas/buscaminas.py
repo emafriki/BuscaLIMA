@@ -114,6 +114,18 @@ def calculate_numbers():
                     if 0 <= i + y < HEIGHT and 0 <= j + x < WIDTH and board[i + y][j + x] == -1:
                         board[i][j] += 1
 
+def on_left_click(i, j):
+    if board[i][j] == -1:
+        game_over()
+    elif board[i][j] == 0:
+        visited = set()
+        reveal_empty_cells(i, j, visited)
+    else:
+        buttons[i][j].config(text=str(board[i][j]))
+        buttons[i][j].config(state=tk.NORMAL)
+
+banderaImgSlot = PhotoImage(file="img/banderaSlot.png") 
+imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
 
 
 
