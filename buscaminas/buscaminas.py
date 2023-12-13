@@ -103,6 +103,22 @@ def place_bombs():
             board[y][x] = -1
             bombs_placed += 1
 
+def calculate_numbers():
+    for i in range(HEIGHT):
+        for j in range(WIDTH):
+            if board[i][j] == -1:
+                continue
+            for x in range(-1, 2):
+                for y in range(-1, 2):
+                    if 0 <= i + y < HEIGHT and 0 <= j + x < WIDTH and board[i + y][j + x] == -1:
+                        board[i][j] += 1
+
+
+
+
+
+
+
 
 
 
