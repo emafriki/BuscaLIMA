@@ -130,6 +130,7 @@ imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
 
 
 def on_right_click(i, j):
+	"""this function places a flag in a cell or removes it"""
     if buttons[i][j]["state"] == tk.NORMAL:
         if not flags[i][j]:
             buttons[i][j].config(image=banderaImgSlot, width=64, height=65)
@@ -137,18 +138,6 @@ def on_right_click(i, j):
         else:
             buttons[i][j].config(image=imagenTransparente, text="")
             flags[i][j] = False
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
