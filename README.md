@@ -30,8 +30,10 @@ The following GIF shows an example of how the game works, you can also download 
 # In case of receiving any type of error:
 * Check that you've typed the commands correctly. 
 
+
 * Check that the git clone code https://github.com/emafriki/BuscaLIMA has been copied correctly
-* 
+
+  
 * Check that you have the Tkinter packages in your Python installation.
 
 
