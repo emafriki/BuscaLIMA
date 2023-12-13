@@ -54,6 +54,55 @@ def create_menu():
     difficulty_menu.add_command(label="Intermedio", command=lambda: set_difficulty(7, 7, 8))
     difficulty_menu.add_command(label="Dificil", command=lambda: set_difficulty(9, 9, 10))
 
+def set_difficulty(width, height, bomb_count):
+	"""This feature changes the difficulty of the game"""
+    global WIDTH, HEIGHT, BOMB_COUNT
+    WIDTH, HEIGHT, BOMB_COUNT = width, height, bomb_count
+    clear_board()
+    create_board()
+
+def clear_board():
+	"""This function is responsible for cleaning the board and resetting some variables"""
+    global buttons, time_label
+    for i in range(len(buttons)):
+        for j in range(len(buttons[i])):
+            if buttons[i][j] is not None:
+                buttons[i][j].unbind("<Button-1>")
+                buttons[i][j].unbind("<Button-3>")
+                buttons[i][j].destroy()
+                buttons[i][j] = None
+    if time_label is not None:
+        time_label.destroy()
+def create_board():
+	"""This function is responsible for initializing and displaying the game board in the graphical interface"""
+    global board, buttons, flags, time_label, time_active
+    board = [[0] *  WIDTH for _ in range(HEIGHT)]
+    flags = [[False] * WIDTH for _ in range(HEIGHT)]
+    place_bombs()
+    calculate_numbers()
+
+    buttons = [[None] * WIDTH for _ in range(HEIGHT)]
+
+    for i in range(HEIGHT):
+        for j in range(WIDTH):
+            buttons[i][j] = Button(frame, text="", width=6, height=3, font=("Arial 12 bold"))
+            buttons[i][j].bind("<Button-1>", lambda event, i=i, j=j: on_left_click(i, j))
+            buttons[i][j].bind("<Button-3>", lambda event, i=i, j=j: on_right_click(i, j))
+            buttons[i][j].grid(row=i, column=j)
+
+    time_label = Label(frame, text="Tiempo: 0s", font=("Arial 12 bold"))
+    time_label.grid(row=HEIGHT, columnspan=WIDTH)
+    start_time()
+
+def place_bombs():
+	"""This function places the bombs on the board"""
+    bombs_placed = 0
+    while bombs_placed < BOMB_COUNT:
+        x, y = random.randint(0, WIDTH - 1), random.randint(0, HEIGHT - 1)
+        if board[y][x] != -1:
+            board[y][x] = -1
+            bombs_placed += 1
+
 
 
 
