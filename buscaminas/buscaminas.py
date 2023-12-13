@@ -103,6 +103,8 @@ def place_bombs():
             board[y][x] = -1
             bombs_placed += 1
 
+#-----------------------calculate the number of cells---------------------------------
+
 def calculate_numbers():
 	"""this function counts how many mines there are in adjacent cells."""
     for i in range(HEIGHT):
