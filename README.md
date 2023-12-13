@@ -1,7 +1,7 @@
 # BuscaLIMA (minesweeper game)
 In this repository we will recreate the minesweeper game using the Python programming language. 
 
-Minesweeper is a game whose objective is to clear all the squares in a minefield without detonating any also you can use flags to rule out places where there may be mines. If you make a mistake, you will have to start over or finish the game.
+Minesweeper is a game whose objective is to clear all the squares in a minefield without detonating any also you can use flags to rule out places where there may be mines. If you make a mistake and click on a box with a mine, you will have to start over or finish the game.
 
 To develop this game, we will use a graphical interface, with the help of the library:
 
