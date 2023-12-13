@@ -115,6 +115,7 @@ def calculate_numbers():
                         board[i][j] += 1
 
 def on_left_click(i, j):
+	"""This function calls the game_over() function if the clicked cell contains a mine"""
     if board[i][j] == -1:
         game_over()
     elif board[i][j] == 0:
