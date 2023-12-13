@@ -41,7 +41,7 @@ def update_time():
         root.after(1000, update_time)
 
 
-#-----------------Dropdown menu----------------
+#--------------------Dropdown menu-------------------
 
 def create_menu():
     """ This function creates the dropdown menu to choose between three levels """
@@ -61,6 +61,8 @@ def set_difficulty(width, height, bomb_count):
     clear_board()
     create_board()
 
+#---------------------Game board-----------------------
+
 def clear_board():
 	"""This function is responsible for cleaning the board and resetting some variables"""
     global buttons, time_label
@@ -73,6 +75,8 @@ def clear_board():
                 buttons[i][j] = None
     if time_label is not None:
         time_label.destroy()
+
+
 def create_board():
 	"""This function is responsible for initializing and displaying the game board in the graphical interface"""
     global board, buttons, flags, time_label, time_active
@@ -94,6 +98,8 @@ def create_board():
     time_label.grid(row=HEIGHT, columnspan=WIDTH)
     start_time()
 
+#----------------------------Mines------------------------
+
 def place_bombs():
 	"""This function places the bombs on the board"""
     bombs_placed = 0
@@ -102,8 +108,6 @@ def place_bombs():
         if board[y][x] != -1:
             board[y][x] = -1
             bombs_placed += 1
-
-#-----------------------calculate the number of cells---------------------------------
 
 def calculate_numbers():
 	"""this function counts how many mines there are in adjacent cells."""
@@ -116,8 +120,10 @@ def calculate_numbers():
                     if 0 <= i + y < HEIGHT and 0 <= j + x < WIDTH and board[i + y][j + x] == -1:
                         board[i][j] += 1
 
+#--------------------------Game controls--------------------
+
 def on_left_click(i, j):
-	"""This function calls the game_over() function if the clicked cell contains a mine"""
+	"""This function creates one of the game controls, such that we create a function for left click and calls the game_over() function if the clicked cell contains a mine"""
     if board[i][j] == -1:
         game_over()
     elif board[i][j] == 0:
@@ -132,7 +138,7 @@ imagenTransparente = PhotoImage(file="img/imagenTransparente.png")
 
 
 def on_right_click(i, j):
-	"""this function places a flag in a cell or removes it"""
+	"""This function creates one of the game controls, such that places a flag in a cell or removes it"""
     if buttons[i][j]["state"] == tk.NORMAL:
         if not flags[i][j]:
             buttons[i][j].config(image=banderaImgSlot, width=64, height=65)
@@ -140,12 +146,6 @@ def on_right_click(i, j):
         else:
             buttons[i][j].config(image=imagenTransparente, text="")
             flags[i][j] = False
-
-
-
-
-
-
 
 
 #-------------------------------------Reveal empty cells-------------------------------------
